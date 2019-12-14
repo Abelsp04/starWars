@@ -1,8 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            planet: []
-            people: []
+            planet: [],
+            people: [],
             vehicle: []
         },
         actions: {
@@ -17,21 +17,21 @@ const getState = ({ getStore, getActions, setStore }) => {
                             });
                     });
             }
-        }
-        actions: {
-            loadPeople() {
-                const url = "https://swapi.co/api/people";
-                fetch(url)
-                    .then(response => response.json())
-                    .then(result => {
-                        console.log("aaaaaaaaaaaaa", result),
-                            setStore({
-                                people: result.results
-                            });
-                    });
-            }
+        },
+
+        loadPeople() {
+            const url = "https://swapi.co/api/people";
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    console.log("aaaaaaaaaaaaa", result),
+                        setStore({
+                            people: result.results
+                        });
+                });
         }
 
+    }
     };
 
     export default getState;
